@@ -1,3 +1,3 @@
 # google-maps-women
 
-A website that automatically shows the institutions around the device's current address for women.
+A webpage that automatically shows the institutions around the current address for women.
