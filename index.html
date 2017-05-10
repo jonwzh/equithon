@@ -27,7 +27,7 @@
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.867, lng: 151.206},
+          center: {lat: 43.4722864599, lng: -80.5448593411},
           zoom: 13,
           styles: [{
             stylers: [{ visibility: 'simplified' }]
@@ -66,18 +66,19 @@
 
       }
 
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+
       function performSearch() {
         var request = {
           bounds: map.getBounds(),
           keyword: 'women'
         };
         service.radarSearch(request, callback);
-
-        var request2 = {
-          bounds: map.getBounds(),
-          keyword: 'disabled'
-        };
-        service.radarSearch(request2, callback);
 
         var request3 = {
           bounds: map.getBounds(),
@@ -90,18 +91,6 @@
           keyword: 'heforshe'
         };
         service.radarSearch(request4, callback);
-
-        var request5 = {
-          bounds: map.getBounds(),
-          keyword: 'emergency'
-        };
-        service.radarSearch(request5, callback);
-
-        var request6 = {
-          bounds: map.getBounds(),
-          keyword: 'girl'
-        };
-        service.radarSearch(request6, callback);
       }
 
       function callback(results, status) {
